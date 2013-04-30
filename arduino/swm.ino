@@ -21,7 +21,7 @@ void loop()
 {  
   humidity = dht.readHumidity(); // faz leitura de umidade
   temperature = dht.readTemperature(); // fz leitura de temperatura
-  //delay(1000); // pausa (tempo minimo nova leitura)
+  delay(1000); // pausa (tempo minimo nova leitura)
 }
 
 void serialEvent() // simula evento serial
