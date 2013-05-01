@@ -30,7 +30,7 @@ void serialEvent() // simula evento serial
   
   if(cmd == '1') // se for um comando valido executa rotina
   {
-      if(isnan(t) || isnan(h)) // verifica se houve erro na leitura
+      if(isnan(temperature) || isnan(humidity)) // verifica se houve erro na leitura
     {
       Serial.print("error");
     }
