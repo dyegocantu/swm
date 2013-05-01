@@ -1,4 +1,8 @@
-/* SWM - Sensor Web Monitor */
+/* SWM - Sensor Web Monitor
+*
+* DHT lib by ladyada:
+* https://github.com/adafruit/DHT-sensor-library
+*/
 
 #include "DHT.h" // importa lib do sensor dht
 
