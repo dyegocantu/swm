@@ -1,44 +1,45 @@
-/* SWM - Sensor Web Monitor
+/* 
+* SWM - Sensor Web Monitor
 *
-* DHT lib by ladyada:
+* DHT lib by AdaFruit:
 * https://github.com/adafruit/DHT-sensor-library
 */
 
-#include "DHT.h" // importa lib do sensor dht
+#include "DHT.h" // import the sensor lib
 
-#define DHTPIN 2 // pino do sensor
-#define DHTTYPE DHT11 //  tipo de sensor
+#define DHTPIN 2 // define the sensor pin
+#define DHTTYPE DHT11 // define the sensor type
 
-const int ID = 1; // identificador do dispositivo
+#define ID '1' // identification of thing (arduino)
 
-DHT dht(DHTPIN, DHTTYPE); // objeto sensor dht
-float humidity; // umidade
-float temperature; // temperatura
+DHT dht(DHTPIN, DHTTYPE); // create a sensor object
+float humidity; 
+float temperature;
 
 void setup() 
 {
-  Serial.begin(115200); // inicia comunicacao serial
-  dht.begin(); // inicia comunicacao com o sensor
+  Serial.begin(115200); // starts the serial communication
+  dht.begin(); // starts the sensor
 }
 
 void loop() 
 {  
-  humidity = dht.readHumidity(); // faz leitura de umidade
-  temperature = dht.readTemperature(); // fz leitura de temperatura
-  delay(1000); // pausa (tempo minimo nova leitura)
+  humidity = dht.readHumidity(); // reads the humidity
+  temperature = dht.readTemperature(); // reads the temperature
+  delay(1000); // delay for next read
 }
 
-void serialEvent() // simula evento serial
+void serialEvent() // routine of serial event
 {
-  char cmd = (char)Serial.read(); // le caracter recebido pela serial
+  char receive = (char)Serial.read(); // reads a serial character
   
-  if(cmd == '1') // se for um comando valido executa rotina
+  if(receive == ID) // was received the ID
   {
-      if(isnan(temperature) || isnan(humidity)) // verifica se houve erro na leitura
+    if(isnan(temperature) || isnan(humidity)) // check error of read 
     {
-      Serial.print("error");
+      Serial.print("error"); // sends a error message
     }
-    else // se nao houve erro entao imprime os valores lidos
+    else // was not error
     {
       Serial.print("{");
       Serial.print("\"id\":");
@@ -50,7 +51,8 @@ void serialEvent() // simula evento serial
       Serial.print("\"temperature\":");
       Serial.print(temperature);
       Serial.print("}");
-      Serial.println(); // tratar /r/n ao receber: ex. x = x.rstrip('\r\n')
+      Serial.println(); // treat to receive string /r/n. 
+                        // eg. in python: x = x.rstrip('\r\n')
     }
   }
 }
