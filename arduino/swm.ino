@@ -31,7 +31,7 @@ void loop()
 
 void serialEvent() // routine of serial event
 {
-  char receive = (char)Serial.read(); // reads a serial character
+  char receive = Serial.read(); // reads a serial character
   
   if(receive == ID) // was received the ID
   {
