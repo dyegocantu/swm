@@ -10,6 +10,7 @@
 #define DHTPIN 2 // define the sensor pin
 #define DHTTYPE DHT11 // define the sensor type
 
+#define DELAY 2 // time to wait for next read
 #define ID '1' // identification of thing (arduino)
 
 DHT dht(DHTPIN, DHTTYPE); // create a sensor object
@@ -18,15 +19,15 @@ float temperature;
 
 void setup() 
 {
-  Serial.begin(115200); // starts the serial communication
-  dht.begin(); // starts the sensor
+  Serial.begin(115200); // start the serial communication
+  dht.begin(); // start the sensor
 }
 
 void loop() 
 {  
-  humidity = dht.readHumidity(); // reads the humidity
-  temperature = dht.readTemperature(); // reads the temperature
-  delay(1000); // delay for next read
+  humidity = dht.readHumidity(); // read the humidity
+  temperature = dht.readTemperature(); // read the temperature
+  delay(DELAY);
 }
 
 void serialEvent() // routine of serial event
