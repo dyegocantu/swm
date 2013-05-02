@@ -10,7 +10,7 @@
 #define DHTPIN 2 // define the sensor pin
 #define DHTTYPE DHT11 // define the sensor type
 
-#define DELAY 2 // time to wait for next read
+#define DELAY 1 // time to wait for next read
 #define ID '1' // identification of thing (arduino)
 
 DHT dht(DHTPIN, DHTTYPE); // create a sensor object
