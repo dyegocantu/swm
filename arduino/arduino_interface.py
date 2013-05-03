@@ -30,7 +30,7 @@ if __name__ == '__main__':
     else:
         arduino_filename = available_ports[0]
         try:
-            arduino.connect('/dev/ttyACM0', 115200)
+            arduino.connect(arduino_filename, 115200)
             arduino.write('1')
             print arduino.read()
         except serial.serialutil.SerialException:
