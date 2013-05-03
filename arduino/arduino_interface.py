@@ -13,6 +13,7 @@ class Arduino(object):
 
     def write(self, data):
         self.arduino.write(data)
+        time.sleep(1)
 
     def read(self):
         return self.arduino.readline()
