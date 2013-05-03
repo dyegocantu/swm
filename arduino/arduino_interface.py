@@ -6,7 +6,7 @@ import time
 import glob
 
 class Arduino(object):
-    '''Define a Arduino object.'''
+    '''Defines a Arduino object.'''
 
     def connect(self, port, baud_rate):
         self.arduino = serial.Serial(port, baud_rate)
