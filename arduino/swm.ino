@@ -43,13 +43,13 @@ void serialEvent() // routine of serial event
     else // was not error
     {
       Serial.print("{");
-      Serial.print("\"id\":");
+      Serial.print("\"id\": ");
       Serial.print(ID);
-      Serial.print(",");
-      Serial.print("\"humidity\":");
+      Serial.print(", ");
+      Serial.print("\"humidity\": ");
       Serial.print(humidity);
-      Serial.print(","); 
-      Serial.print("\"temperature\":");
+      Serial.print(", "); 
+      Serial.print("\"temperature\": ");
       Serial.print(temperature);
       Serial.print("}");
       Serial.println(); // treat to receive string /r/n. 
