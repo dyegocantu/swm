@@ -6,21 +6,20 @@ import time
 
 class Arduino(object):
     '''Define a Arduino object.'''
-
-    def connect(self, port, baud_rate, timeout=0.1):
-        self.arduino = serial.Serial(port, baud_rate, timeout=timeout)
+    
+    def connect(self, port, baud_rate):
+        self.arduino = serial.Serial(port, baud_rate)
         time.sleep(2)
 
     def write(self, data):
         self.arduino.write(data)
-        time.sleep(1)
 
     def read(self):
         return self.arduino.readline()
-   
+
 if __name__ == '__main__':
     arduino = Arduino()
-    arduino.connect('/dev/ttyACM0', 115200)
+    arduino.connect('/dev/ttyACM0',115200)
     arduino.write('1')
     print arduino.read()
 
