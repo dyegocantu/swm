@@ -27,7 +27,7 @@ void loop()
 {  
   humidity = dht.readHumidity(); // read the humidity
   temperature = dht.readTemperature(); // read the temperature
-  delay(DELAY);
+  // delay(DELAY); // not used
 }
 
 void serialEvent() // routine of serial event
