@@ -32,7 +32,9 @@ if __name__ == '__main__':
         try:
             arduino.connect(arduino_filename, 115200)
             arduino.write('1')
-            print arduino.read()
+            f = open('reads.txt', 'a')
+            f.write(arduino.read())
+            f.close()
         except serial.serialutil.SerialException:
             print 'Serial exception'
             time.sleep(1)
