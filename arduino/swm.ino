@@ -43,9 +43,9 @@ void serialEvent() // routine of serial event
     else
     {
       Serial.print("{");
-      Serial.print("\"id\": ");
-      Serial.print(ID);
-      Serial.print(", ");
+      // Serial.print("\"id\": "); // not used
+      // Serial.print(ID);
+      // Serial.print(", ");
       Serial.print("\"humidity\": ");
       Serial.print(humidity);
       Serial.print(", "); 
