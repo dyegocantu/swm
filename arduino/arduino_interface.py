@@ -17,7 +17,8 @@ class Arduino(object):
 
     def read(self):
         return self.arduino.readline()
-   
+
+
 if __name__ == '__main__':
     
     SERIAL_PORT = '/dev/ttyACM*'
