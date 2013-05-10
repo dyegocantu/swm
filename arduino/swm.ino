@@ -5,13 +5,13 @@
 * https://github.com/adafruit/DHT-sensor-library
 */
 
-#include "DHT.h" // import the sensor lib
+#include "DHT.h"
 
-#define DHTPIN 2 // define the sensor pin
-#define DHTTYPE DHT11 // define the sensor type
+#define DHTPIN 2
+#define DHTTYPE DHT11
 
 #define DELAY 1 // time to wait for next read
-#define ID '1' // identification of thing (arduino)
+#define ID '1' // identification
 
 DHT dht(DHTPIN, DHTTYPE); // create a sensor object
 float humidity; 
@@ -19,28 +19,28 @@ float temperature;
 
 void setup() 
 {
-  Serial.begin(115200); // start the serial communication
+  Serial.begin(115200);
   dht.begin(); // start the sensor
 }
 
 void loop() 
 {  
-  humidity = dht.readHumidity(); // read the humidity
-  temperature = dht.readTemperature(); // read the temperature
+  humidity = dht.readHumidity();
+  temperature = dht.readTemperature();
   // delay(DELAY); // not used
 }
 
 void serialEvent() // routine of serial event
 {
-  char receive = Serial.read(); // reads a serial character
+  char receive = Serial.read();
   
   if(receive == ID) // was received the ID
   {
     if(isnan(temperature) || isnan(humidity)) // check error of read 
     {
-      Serial.print("error"); // sends a error message
+      Serial.println("{\"error\": \"Failed to read from DHT\"}");
     }
-    else // was not error
+    else
     {
       Serial.print("{");
       Serial.print("\"id\": ");
