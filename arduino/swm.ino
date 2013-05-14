@@ -10,7 +10,6 @@
 #define DHTPIN 2
 #define DHTTYPE DHT11
 
-#define DELAY 1 // time to wait for next read
 #define ID '1' // identification
 
 DHT dht(DHTPIN, DHTTYPE); // create a sensor object
@@ -27,7 +26,6 @@ void loop()
 {  
   humidity = dht.readHumidity();
   temperature = dht.readTemperature();
-  // delay(DELAY); // not used
 }
 
 void serialEvent() // routine of serial event
@@ -43,9 +41,6 @@ void serialEvent() // routine of serial event
     else
     {
       Serial.print("{");
-      // Serial.print("\"id\": "); // not used
-      // Serial.print(ID);
-      // Serial.print(", ");
       Serial.print("\"humidity\": ");
       Serial.print(humidity);
       Serial.print(", "); 
