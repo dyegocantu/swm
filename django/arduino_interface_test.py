@@ -19,12 +19,12 @@ class Arduino(object):
 
 if __name__ == '__main__':
 
-#    import os
-    
-#    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swm.settings")
-    
-#    from models import ReadData
-   
+    import os
+
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swm.settings")
+
+    from arduino_interface.models import ReadData
+
     SERIAL_PORT = '/dev/ttyACM0'
     BAUD_RATE = 115200
 
