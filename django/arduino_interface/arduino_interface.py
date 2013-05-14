@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from serial import Serial
-from serial.serialutil import SerialException
 from time import sleep
 from glob import glob
 #from models import ReadData
