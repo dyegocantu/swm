@@ -3,8 +3,7 @@
 
 from serial import Serial
 from time import sleep
-from glob import glob
-#from models import ReadData
+# from models import ReadData
 
 class Arduino(object):
     
@@ -21,6 +20,10 @@ class Arduino(object):
 
 if __name__ == '__main__':
 
+#   import os
+
+#   os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swm.settings")
+    
     SERIAL_PORT = '/dev/ttyACM0'
     BAUD_RATE = 115200
 
