@@ -25,6 +25,7 @@ if __name__ == '__main__':
 
     if os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swm.settings"):
         from sensor.models import ReadData
+        from django.utils import timezone
     else:
         raise
 
@@ -40,6 +41,7 @@ if __name__ == '__main__':
     read_data = ReadData()
     read_data.temperature = receive['temperature']
     read_data.humidity = receive['humidity']
-    read_data.created = datetime.datetime.now()
+    #read_data.created = datetime.datetime.now()
+    read_data.created = timezone.now()
     read_data.save()
 
