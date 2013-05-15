@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from serial import Serial
-from time import sleep
+import serial
+import time
 
 class Arduino(object):
     
     def connect(self, port, baud_rate):
-        self.arduino = Serial(port, baud_rate)
-        sleep(2)
+        self.arduino = serial.Serial(port, baud_rate)
+        time.sleep(2)
 
     def write(self, data):
         self.arduino.write(data)
@@ -20,16 +20,26 @@ class Arduino(object):
 if __name__ == '__main__':
 
     import os
+    import json
+    import datetime
 
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swm.settings")
-
-    from arduino_interface.models import ReadData
+    if os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swm.settings"):
+        from sensor.models import ReadData
+    else:
+        raise
 
     SERIAL_PORT = '/dev/ttyACM0'
     BAUD_RATE = 115200
 
     arduino = Arduino()
     arduino.connect(SERIAL_PORT, BAUD_RATE)
+    
     arduino.write('1')
-    print arduino.read()
+    receive = json.loads(arduino.read())
+    
+    read_data = ReadData()
+    read_data.temperature = receive['temperature']
+    read_data.humidity = receive['humidity']
+    read_data.created = datetime.datetime.now()
+    read_data.save()
 
