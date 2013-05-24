@@ -8,6 +8,8 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'swm.views.home', name='home'),
     # url(r'^swm/', include('swm.foo.urls')),
+    
+    url(r'^$', 'sensor.views.data'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
