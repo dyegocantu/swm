@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Sensor Web Monitor</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th><th>Temperature</th><th>Humidity</th><th>Date/Time</th>
+    </tr>
+{% for item in read_data_list %}
+    <tr>
+        <td>{{ item.id }}</td><td>{{ item.temperature }}</td>
+        <td>{{ item.humidity }}</td><td>{{item.created }}</td>
+    </tr>
+
+{% empty %}
+<p>No readings.</p>
+
+{% endfor %}
+</table>
+
+{% endblock %}
