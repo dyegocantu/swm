@@ -3,12 +3,13 @@
 <h1>Sensor Web Monitor</h1>
 <table border="1">
     <tr>
-        <th>ID</th><th>Temperature</th><th>Humidity</th><th>Date/Time</th>
+        <th>ID</th><th>Temperatura</th><th>Umidade</th><th>Data/Horário</th>
     </tr>
     <tr>
         <td>{{ read_data.id }}</td><td>{{ read_data.temperature }}</td>
         <td>{{ read_data.humidity }}</td><td>{{ read_data.created }}</td>
     </tr>
 </table>
+<p><a href="/chart/">Gráfico</a></p>
 {% endblock %}
 
