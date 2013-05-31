@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
@@ -9,7 +11,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'swm.views.home', name='home'),
     # url(r'^swm/', include('swm.foo.urls')),
     
-    url(r'^$', 'sensor.views.data'),
+    url(r'^$', 'sensor.views.last_data'),
+    url(r'^period/$', 'sensor.views.period_data'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
