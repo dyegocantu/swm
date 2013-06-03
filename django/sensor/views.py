@@ -17,7 +17,7 @@ def period_data(request):
             read_data_list = \
             ReadData.objects.filter(created__range=(data['start_date'], \
                     data['end_date']))
-            return render_to_response('chart.html', \
+            return render_to_response('period_result.html', \
                     {'read_data_list': read_data_list})
     else:
         form = FormPeriod()
