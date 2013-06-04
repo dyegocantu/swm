@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+{% if read_data_list %}
 <table border="1">
     <tr>
         <th>ID</th><th>Temperature</th><th>Umidade</th><th>Data/Horário</th>
@@ -13,6 +14,9 @@
 <p>Nenhum registro encontrado.</p>
 {% endfor %}
 </table>
+{% elif read_data_list|length == 0 %}
+<p>Nenhum registro encontrado.</p>
+{% endif %}
 <p><a href="/period/">Voltar</a></p>
 {% endblock %}
 
