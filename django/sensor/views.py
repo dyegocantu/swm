@@ -8,7 +8,10 @@ from forms import FormPeriod
 
 @login_required
 def last_data(request):
-    read_data = ReadData.objects.latest('pk')
+    try:
+        read_data = ReadData.objects.latest('pk')
+    except:
+        read_data = None
     return render_to_response('last.html', {'read_data': read_data})
 
 @login_required
