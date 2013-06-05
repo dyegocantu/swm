@@ -10,7 +10,7 @@ from forms import FormPeriod
 def last_data(request):
     try:
         read_data = ReadData.objects.latest('pk')
-    except:
+    except ReadData.DoesNotExist:
         read_data = None
     return render_to_response('last.html', {'read_data': read_data})
 
