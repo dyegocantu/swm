@@ -14,6 +14,10 @@ urlpatterns = patterns('',
     
     url(r'^$', 'sensor.views.last_data'),
     url(r'^period/$', 'sensor.views.period_data'),
+    url(r'^login/$', 'django.contrib.auth.views.login', \
+            {'template_name': 'login.html'}),
+    url(r'^logout/$', 'django.contrib.auth.views.logout_then_login', \
+            {'login_url': '/login/'}),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -26,8 +30,7 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', \
                 {'document_root': settings.MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', \
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', \
                 {'document_root': settings.STATIC_ROOT}),
-
 )
 

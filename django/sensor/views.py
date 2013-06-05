@@ -2,13 +2,16 @@
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 from models import ReadData
 from forms import FormPeriod
 
+@login_required
 def last_data(request):
     read_data = ReadData.objects.latest('pk')
     return render_to_response('last.html', {'read_data': read_data})
 
+@login_required
 def period_data(request):
     if request.method == 'POST':
         form = FormPeriod(request.POST, request.FILES)
