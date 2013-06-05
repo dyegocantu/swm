@@ -4,6 +4,7 @@
 {% endblock %}
 {% block body %}
 <h1>Sensor Web Monitor</h1>
+{% if read_data %}
 <table border="1">
     <tr>
         <th>ID</th><th>Temperatura</th><th>Umidade</th><th>Data/Horário</th>
@@ -13,6 +14,9 @@
         <td>{{ read_data.humidity }}</td><td>{{ read_data.created }}</td>
     </tr>
 </table>
+{% else %}
+<h3>Registro não encontrado</h3>
+{% endif %}
 <p><a href="/period/">Gráfico por período</a></p>
 <p><a href="/logout/">Sair do sistema</a></p>
 {% endblock %}

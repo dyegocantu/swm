@@ -3,7 +3,7 @@
 {% if form.errors %}
     {{ form.non_fields_errors }}
 {% endif %}
-<form action="." method="post">
+<form action="{% url 'django.contrib.auth.views.login' %}" method="post">
     {% csrf_token %}
     <label for="username">{{ form.username.label_tag }}:</label>
     {{ form.username }}
