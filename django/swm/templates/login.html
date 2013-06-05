@@ -5,21 +5,13 @@
 {% endif %}
 <form action="." method="post">
     {% csrf_token %}
-    <table border="1">
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <button type="submit">Login</button>
-            </td>
-        </tr>
-    </table>
+    <label for="username">{{ form.username.label_tag }}:</label>
+    {{ form.username }}
+    <br/>
+    <label for="password">{{ form.password.label_tag }}:</label>
+    {{ form.password }}
+    <br/>
+    <button type="submit">Login</button>
     <input type="hidden" name="next" value="{{ next }}"/>
 </form>
 {% endblock %}
