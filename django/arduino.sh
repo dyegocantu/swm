@@ -3,7 +3,7 @@
 # $ crontab -e
 # */1 * * * * $HOME/workspace/swm/django/arduino.sh
 
-# $HOME (home of crontab user)
+# $HOME (home of cron user)
 
 source $HOME/.virtualenvs/swm/bin/activate
 cd $HOME/workspace/swm/django/
