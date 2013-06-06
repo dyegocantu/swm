@@ -12,8 +12,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'swm.views.home', name='home'),
     # url(r'^swm/', include('swm.foo.urls')),
     
-    url(r'^$', 'sensor.views.last_data'),
-    url(r'^period/$', 'sensor.views.period_data'),
+    url(r'^$', 'main.views.last_data'),
+    url(r'^period/$', 'main.views.period_data'),
     url(r'^login/$', 'django.contrib.auth.views.login', \
             {'template_name': 'login.html'}),
     url(r'^logout/$', 'django.contrib.auth.views.logout_then_login', \

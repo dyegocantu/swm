@@ -24,7 +24,7 @@ if __name__ == '__main__':
     import json
 
     if os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swm.settings"):
-        from sensor.models import ReadData
+        from models import ReadData
         from django.utils import timezone
     else:
         raise
