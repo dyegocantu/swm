@@ -12,10 +12,13 @@ urlpatterns = patterns('',
     # url(r'^$', 'swm.views.home', name='home'),
     # url(r'^swm/', include('swm.foo.urls')),
     
-    url(r'^$', 'main.views.last_data'),
-    url(r'^period/$', 'main.views.period_data'),
+    url(r'^$', 'main.views.home'),
+    url(r'^charts/$', 'main.views.charts'),
+    url(r'^reports/$', 'main.views.reports'),
+    #url(r'^charts/$', 'charts.views.charts'),
+    #url(r'^reports/$', 'reports.views.reports'),
     url(r'^login/$', 'django.contrib.auth.views.login', \
-            {'template_name': 'login.html'}),
+            {'template_name': 'login/index.html'}),
     url(r'^logout/$', 'django.contrib.auth.views.logout_then_login', \
             {'login_url': '/login/'}),
 

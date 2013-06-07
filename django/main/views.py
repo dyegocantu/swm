@@ -7,7 +7,7 @@ from models import ReadData
 from forms import FormPeriod
 
 @login_required
-def last_data(request):
+def home(request):
     try:
         read_data = ReadData.objects.latest('pk')
     except ReadData.DoesNotExist:
@@ -15,18 +15,34 @@ def last_data(request):
     return render_to_response('main/index.html', {'read_data': read_data})
 
 @login_required
-def period_data(request):
+def charts(request):
     if request.method == 'POST':
         form = FormPeriod(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
             read_data_list = \
-            ReadData.objects.filter(created__range=(data['start_date'], \
-                    data['end_date']))
-            return render_to_response('period_result.html', \
+                ReadData.objects.filter(created__range=\
+                (data['start_date'], data['end_date']))
+            return render_to_response('charts/charts.html', \
                     {'read_data_list': read_data_list})
     else:
         form = FormPeriod()
-    return render_to_response('period.html', {'form': form}, \
+    return render_to_response('charts/index.html', {'form': form}, \
+            context_instance=RequestContext(request))
+
+@login_required
+def reports(request):
+    if request.method == 'POST':
+        form = FormPeriod(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.cleaned_data
+            read_data_list = \
+                ReadData.objects.filter(created__range=\
+                (data['start_date'], data['end_date']))
+            return render_to_response('reports/reports.html', \
+                    {'read_data_list': read_data_list})
+    else:
+        form = FormPeriod()
+    return render_to_response('reports/index.html', {'form': form}, \
             context_instance=RequestContext(request))
 

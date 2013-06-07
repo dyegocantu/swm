@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>Gráficos</h2>
+<h3>Pesquisar registros</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Pesquisar</button>
+</form>
+<p><a href="/">Voltar</a></p>
+<p><a href="/logout/">Sair do sistema</a></p>
+{% endblock %}
+
