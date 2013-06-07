@@ -12,7 +12,7 @@ def last_data(request):
         read_data = ReadData.objects.latest('pk')
     except ReadData.DoesNotExist:
         read_data = None
-    return render_to_response('last.html', {'read_data': read_data})
+    return render_to_response('main/index.html', {'read_data': read_data})
 
 @login_required
 def period_data(request):

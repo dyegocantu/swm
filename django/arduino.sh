@@ -7,4 +7,4 @@
 
 source $HOME/.virtualenvs/swm/bin/activate
 cd $HOME/workspace/swm/django/
-$HOME/.virtualenvs/swm/bin/python $HOME/workspace/swm/django/main/arduino.py
+$HOME/.virtualenvs/swm/bin/python $HOME/workspace/swm/django/arduino.py

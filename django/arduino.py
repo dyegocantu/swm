@@ -22,9 +22,9 @@ if __name__ == '__main__':
     import os
     import sys
     import json
-
-    if os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swm.settings"):
-        from models import ReadData
+    
+    if os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'swm.settings'):
+        from main.models import ReadData
         from django.utils import timezone
     else:
         raise
