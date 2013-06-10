@@ -27,7 +27,7 @@ def charts(request):
                     {'read_data_list': read_data_list})
     else:
         form = FormPeriod()
-    return render_to_response('charts/index.html', {'form': form}, \
+    return render_to_response('charts/form.html', {'form': form}, \
             context_instance=RequestContext(request))
 
 @login_required
@@ -43,6 +43,6 @@ def reports(request):
                     {'read_data_list': read_data_list})
     else:
         form = FormPeriod()
-    return render_to_response('reports/index.html', {'form': form}, \
+    return render_to_response('reports/form.html', {'form': form}, \
             context_instance=RequestContext(request))
 
