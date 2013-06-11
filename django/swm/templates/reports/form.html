@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Relatórios</h2>
-<h3>Pesquisar registros</h3>
+<ul class="breadcrumb">
+    <li><a href="/">Principal</a><span class="divider">/</span></li>
+    <li class="active">Relatório</li>
+</ul>
 <form action="" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Pesquisar</button>
+    <label>Início</label>
+    <input type="text" name="start_date" placeholder="ex. 01/01/2000">
+    <label>Fim</label>
+    <input type="text" name="end_date" placeholder="ex. 01/01/2013">
+    <br/>
+    <button type="submit" class="btn">Pesquisar</button>
 </form>
-<p><a href="/">Voltar</a></p>
-<p><a href="/logout/">Sair do sistema</a></p>
 {% endblock %}
 
