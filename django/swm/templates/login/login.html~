@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+
+{% endblock css %}
 {% if form.errors %}
     {{ form.non_fields_errors }}
 {% endif %}
