@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+<link hre="{% static "css/charts.css" %}" rel="styleshhet"/> 
+{% endblock css %}
 {% block content %}
 <ul class="breadcrumb">
     <li><a href="/">Principal</a><span class="divider">/</span></li>
     <li><a href="/charts/">Gráfico</a><span class="divider">/</span></li>
     <li class="active">Resultado</li>
 </ul>
-<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+<div id="container"></div>
 {% endblock content %}
 {% block js %}
 {% load staticfiles %}
