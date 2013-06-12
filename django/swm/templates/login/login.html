@@ -7,7 +7,7 @@
 {% block menu %}{% endblock menu %}
 <form class="form-signin" action="{% url 'django.contrib.auth.views.login' %}" method="post">
     {% csrf_token %}
-    <h2 class="form-signin-heading">SWM</h2>
+    <h2 class="form-signin-heading text-center">SWM</h2>
     <input type="text" class="input-block-level" placeholder="usuário" name="username"/>
     <input type="password" class="input-block-level" placeholder="senha" name="password"/>
     <button class="btn btn-large btn-primary" type="submit">Acessar</button> 
