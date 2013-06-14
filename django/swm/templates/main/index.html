@@ -1,24 +1,45 @@
 {% extends 'base.html' %}
 {% block head %}
+<!--
 <meta http-equiv="refresh" content="30"/>
+-->
 {% endblock head %}
 {% block content %}
-<h1>Sensor Web Monitor</h1>
+<div class="hero-unit">
+<h1 class="text-center">Sensor Web Monitor</h1>
+</div>
 {% if read_data %}
-<table class="table">
-    <tr>
-        <th>ID</th><th>Temperatura</th><th>Umidade</th><th>Data/Horário</th>
-    </tr>
-    <tr>
-        <td>{{ read_data.id }}</td><td>{{ read_data.temperature }}</td>
-        <td>{{ read_data.humidity }}</td><td>{{ read_data.created }}</td>
-    </tr>
-</table>
+
+<div class="row">
+    <div class="span4">
+        <p style="background:#f4f4f4; letter-spacing:4px">Temperatura</p>
+        <span style="font-size:56px;font-weight:bold"> {{ read_data.temperature }}&deg;C</span>
+
+        <!--
+        <p><a class="btn" href="#">Click
+            meeee &raquo;</a></p>
+        -->
+    </div><!-- .span4 -->
+    <div class="span4">
+        <p style="background:#f4f4f4; letter-spacing:4px">Umidade</p>
+        <span style="font-size:56px;font-weight:bold">
+        {{ read_data.humidity }}%
+        </span>
+
+        <!--
+        <p><a class="btn" href="#">Click
+            meeee &raquo;</a></p>
+        -->
+    </div><!-- .span4 -->
+</div><!--
+.row
+-->
+
+<div class="footer">
+    <p class="text-center">Atualizado em {{ read_data.created }}</p>
+</div>
 {% else %}
 <p>Registro não encontrado.</p>
 {% endif %}
-<p><a href="/charts/">Gráficos</a></p>
-<p><a href="/reports/">Relatórios</a></p>
-<p><a href="/logout/">Sair do sistema</a></p>
 {% endblock %}
 
