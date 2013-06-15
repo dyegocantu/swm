@@ -1,45 +1,33 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block head %}
-<!--
 <meta http-equiv="refresh" content="30"/>
--->
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+{% endblock css %}
 {% endblock head %}
 {% block content %}
-<div class="hero-unit">
-<h1 class="text-center">Sensor Web Monitor</h1>
-</div>
+<div id="main1">
+    <div class="jumbotron">
+        <h1 class="text-center">Sensor Web Monitor</h1>
+    </div>
 {% if read_data %}
-
-<div class="row">
-    <div class="span4">
-        <p style="background:#f4f4f4; letter-spacing:4px">Temperatura</p>
-        <span style="font-size:56px;font-weight:bold"> {{ read_data.temperature }}&deg;C</span>
-
-        <!--
-        <p><a class="btn" href="#">Click
-            meeee &raquo;</a></p>
-        -->
-    </div><!-- .span4 -->
-    <div class="span4">
-        <p style="background:#f4f4f4; letter-spacing:4px">Umidade</p>
-        <span style="font-size:56px;font-weight:bold">
-        {{ read_data.humidity }}%
-        </span>
-
-        <!--
-        <p><a class="btn" href="#">Click
-            meeee &raquo;</a></p>
-        -->
-    </div><!-- .span4 -->
-</div><!--
-.row
--->
-
-<div class="footer">
-    <p class="text-center">Atualizado em {{ read_data.created }}</p>
+    <div class="row-fluid" id="main2">
+        <div class="span6 read-data">
+            <h3 class="text-center">Temperatura</h3>
+            <p class="text-center" id="main3">{{ read_data.temperature }}&deg;C</p>
+        </div>
+        <div class="span6 read-data">
+            <h3 class="text-center">Umidade</h3>
+            <p class="text-center" id="main4">{{ read_data.humidity }}%</p>
+        </div>
+    </div>
+    <div class="row">
+        <p class="text-center" id="main5">Atualizado em {{ read_data.created}}h.</p>
+    </div>
 </div>
 {% else %}
-<p>Registro não encontrado.</p>
+<h3>Registro não encontrado.</h3>
 {% endif %}
 {% endblock %}
 
