@@ -10,10 +10,11 @@
     <li class="active">Resultado</li>
 </ul>
 <div id="container"></div>
+<div id="placeholder" class="demo-placeholder"></div>
 {% endblock content %}
 {% block js %}
+<script src="{% static "js/float/jquery.min.js" %}"></script>
 <script src="{% static "js/flot/jquery.flot.js" %}"></script>
-<script src="{% static "js/jquery.js" %}></script>
 <!--
 <script src="{% static "js/highcharts.js" %}"></script>
 <script src="{% static "js/charts.js" %}"></script>
@@ -28,7 +29,7 @@ $(function() {
     var d3 = [[0, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
     $.plot("#placeholder", [ d1, d2, d3 ]);
     $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
-    });
+});
 </script>
 {% endblock js %}
 
