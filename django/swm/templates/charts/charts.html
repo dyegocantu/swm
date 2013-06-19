@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block css %}
-<link hre="{% static "css/charts.css" %}" rel="styleshhet"/> 
+<link href="{% static "css/charts.css" %}" rel="stylesheet"/> 
 {% endblock css %}
 {% block content %}
 <ul class="breadcrumb">
@@ -10,11 +10,10 @@
     <li class="active">Resultado</li>
 </ul>
 <div id="container"></div>
-<div id="placeholder" class="demo-placeholder"></div>
+<div id="placeholder"></div>
 {% endblock content %}
 {% block js %}
-<script src="{% static "js/float/jquery.min.js" %}"></script>
-<script src="{% static "js/flot/jquery.flot.js" %}"></script>
+<script src="{% static "js/jquery.flot.min.js" %}"></script>
 <!--
 <script src="{% static "js/highcharts.js" %}"></script>
 <script src="{% static "js/charts.js" %}"></script>
