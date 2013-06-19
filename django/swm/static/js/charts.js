@@ -5,7 +5,16 @@ $(function() {
     }
     var d2 = [[0, 3], [4, 8], [8, 5], [9, 13]];
     var d3 = [[0, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
+    
     $.plot("#placeholder", [ d1, d2, d3 ]);
-    $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+
+    /*
+    var data = [
+            {label: "foo", data: [[0, 1], [1, 2], [0, 1], [3, 4]]},
+            {label: "bar", data: [[0, 3], [4, 8], [8, 5], [9, 13]]}
+        ];
+
+    $.plot("#placeholder", data); 
+    */
 });
 
