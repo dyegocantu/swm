@@ -1,28 +1,12 @@
 #main1 {
-    margin: 100px 0;
+    margin: 0px auto;
+    max-width: 700px;
 }
 
-#main2 {
-    margin: 60px 0;
-}
-
-#main3, #main4 {
+#temperature, #humidity {
     font-size: 86px;
     font-weight: bold;
     padding-top: 30px;
-}
-
-#main5 {
-    font-size: 24px;
-}
-
-.jumbotron {
-    text-align: center;
-}
-
-.jumbotron h1 {
-    font-size: 72px;
-    line-height: 1;
 }
 
 .read-data {

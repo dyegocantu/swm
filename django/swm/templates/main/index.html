@@ -1,33 +1,37 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block head %}
+<!--
 <meta http-equiv="refresh" content="30"/>
+-->
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
 {% endblock css %}
 {% endblock head %}
 {% block content %}
 <div id="main1">
-    <div class="jumbotron">
+    <div class="hero-unity">
         <h1 class="text-center">Sensor Web Monitor</h1>
     </div>
-{% if read_data %}
-    <div class="row-fluid" id="main2">
+    <hr/>
+{% if read_data %}    
+    <div class="row-fluid marketing">
         <div class="span6 read-data">
             <h3 class="text-center">Temperatura</h3>
-            <p class="text-center" id="main3">{{ read_data.temperature }}&deg;C</p>
+            <p class="text-center" id="temperature">{{ read_data.temperature }}&deg;C</p>
         </div>
         <div class="span6 read-data">
             <h3 class="text-center">Umidade</h3>
-            <p class="text-center" id="main4">{{ read_data.humidity }}%</p>
+            <p class="text-center" id="humidity">{{ read_data.humidity }}%</p>
         </div>
     </div>
-    <div class="row">
-        <p class="text-center" id="main5">Atualizado em {{ read_data.created}}h.</p>
+    <hr/>
+    <div class="jumbotron">
+        <p class="lead text-center">Atualizado em {{ read_data.created}}h.</p>
     </div>
 </div>
 {% else %}
-<h3>Registro não encontrado.</h3>
+<p>Registro não encontrado.</p>
 {% endif %}
 {% endblock %}
 
