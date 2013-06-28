@@ -9,16 +9,21 @@
     <li><a href="/charts/">Gráfico</a><span class="divider">/</span></li>
     <li class="active">Resultado</li>
 </ul>
-{% if read_data_list %}
+{% if data %}
 <div id="placeholder"></div>
 {% block js %}
 <script src="{% static "js/jquery.flot.min.js" %}"></script>
 <!--[if lte IE 8]>
 <script language="javascript" type="text/javascript" src="{% static "js/excanvas.min.js" %}"></script>
 <![endif]-->
-<script src="{% static "js/charts.js" %}"></script>
+<script>
+    $(function() {
+        var data = {{ data }};
+        $.plot("#placeholder", [data]);
+    });
+</script>
 {% endblock js %}
-{% elif read_data_list|length == 0 %}
+{% elif data|length == 0 %}
 <p>Nenhum registro encontrado.</p>
 {% endif %}
 {% endblock content %}
