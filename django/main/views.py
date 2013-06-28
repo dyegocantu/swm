@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import simplejson
+import time
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
@@ -22,11 +22,12 @@ def charts(request):
         if form.is_valid():
             data = form.cleaned_data
             read_data_list = \
-                ReadData.objects.filter(created__range=\
+                ReadData.objects.filter(created__range= \
                 (data['start_date'], data['end_date']))
             data = []
             for item in read_data_list:
-                data.append([item.temperature, item.id])
+                data.append([int(time.mktime(item.created.timetuple())*1000), \
+                        item.temperature])
             return render_to_response('charts/charts.html', {'data': data})
     else:
         form = FormPeriod()
