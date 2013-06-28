@@ -20,10 +20,10 @@ def charts(request):
     if request.method == 'POST':
         form = FormPeriod(request.POST, request.FILES)
         if form.is_valid():
-            data = form.cleaned_data
+            period = form.cleaned_data
             read_data_list = \
                 ReadData.objects.filter(created__range= \
-                (data['start_date'], data['end_date']))
+                (period['start_date'], period['end_date']))
             data = []
             for item in read_data_list:
                 data.append([int(time.mktime(item.created.timetuple())*1000), \
@@ -39,10 +39,10 @@ def reports(request):
     if request.method == 'POST':
         form = FormPeriod(request.POST, request.FILES)
         if form.is_valid():
-            data = form.cleaned_data
+            period = form.cleaned_data
             read_data_list = \
                 ReadData.objects.filter(created__range=\
-                (data['start_date'], data['end_date']))
+                (period['start_date'], period['end_date']))
             return render_to_response('reports/reports.html', \
                     {'read_data_list': read_data_list})
     else:
