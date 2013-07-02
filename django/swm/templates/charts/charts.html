@@ -23,14 +23,19 @@
 <script>
     $(function() {
 
+        var options = {
+            xaxis: {
+                mode: "time",
+                timeformat: "%d/%m/%y %H:%M"
+            }
+        };
+
         function onDataReceived(items) {
             $.plot("#temperature",[{data: items["charts"]["temperature"],
-                label: "Temperatura"}],
-            {xaxis: {mode: "time", timeformat: "%d/%m/%y %H:%M"}});
+                label: "Temperatura"}], options);
             
             $.plot("#humidity", [{data: items["charts"]["humidity"],
-                label: "Umidade"}],
-            {xaxis: {mode: "time", timeformat: "%d/%m/%y %H:%M"}});
+                label: "Umidade"}], options);
         }
 
         $.ajax({
