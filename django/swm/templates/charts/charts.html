@@ -12,6 +12,7 @@
 {% if data %}
 <div id="placeholder"></div>
 {% block js %}
+<script src="{% static "js/jquery.min.js" %}"></script>
 <script src="{% static "js/jquery.flot.min.js" %}"></script>
 <!--[if lte IE 8]>
 <script language="javascript" type="text/javascript" src="{% static "js/excanvas.min.js" %}"></script>
@@ -26,7 +27,7 @@
         }
 
         $.ajax({
-            url: "/charts/chart_ajax",
+            url: "/charts",
             type: "GET",
             dataType: "json",
             success: onDataReceived
