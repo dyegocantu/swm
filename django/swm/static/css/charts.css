@@ -1,5 +1,12 @@
-#placeholder {
+#temperature {
     height: 450px;
-    width: 100%;
+    width: 45%;
+    float: left;
+}
+
+#humidity {
+    height: 450px;
+    width: 45%;
+    float: right;
 }
 

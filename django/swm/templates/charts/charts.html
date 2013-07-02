@@ -10,7 +10,8 @@
     <li class="active">Resultado</li>
 </ul>
 {% if data %}
-<div id="placeholder"></div>
+<div id="temperature"></div>
+<div id="humidity"></div>
 {% block js %}
 <script src="{% static "js/jquery.min.js" %}"></script>
 <script src="{% static "js/bootstrap.min.js" %}"></script>
@@ -23,26 +24,22 @@
     $(function() {
 
         function onDataReceived(items) {
-            console.log([items]);
-            $.plot("#placeholder", [items]);
+            $.plot("#temperature",[{data: items["charts"]["temperature"],
+                label: "Temperatura"}],
+            {xaxis: {mode: "time", timeformat: "%d/%m/%y %H:%M"}});
+            
+            $.plot("#humidity", [{data: items["charts"]["humidity"],
+                label: "Umidade"}],
+            {xaxis: {mode: "time", timeformat: "%d/%m/%y %H:%M"}});
         }
 
         $.ajax({
-            url: "/charts",
+            url: "/charts/charts_ajax/",
             type: "GET",
             dataType: "json",
             success: onDataReceived
-        });
-    });
-/*    
-    $(function() {
-        var data = {{ data }};
-        console.log(data);
-        $.plot("#placeholder", [{data: data, label: "Temperatura"},
-            {data: data, label: "Umidade"}],
-            { xaxis: {mode: "time", timeformat: "%d/%m/%y %H:%M"}});
-    });
-*/
+       });
+   });
 </script>
 {% endblock js %}
 {% elif data|length == 0 %}
