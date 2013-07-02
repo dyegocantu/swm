@@ -19,12 +19,28 @@
 <script src="{% static "js/flot/jquery.flot.time.js" %}"></script>
 <script>
     $(function() {
+
+        function onDataReceived(items) {
+            console.log([items]);
+            $.plot("#placeholder", [items]);
+        }
+
+        $.ajax({
+            url: "/charts/chart_ajax",
+            type: "GET",
+            dataType: "json",
+            success: onDataReceived
+        });
+    });
+/*    
+    $(function() {
         var data = {{ data }};
         console.log(data);
         $.plot("#placeholder", [{data: data, label: "Temperatura"},
             {data: data, label: "Umidade"}],
             { xaxis: {mode: "time", timeformat: "%d/%m/%y %H:%M"}});
     });
+*/
 </script>
 {% endblock js %}
 {% elif data|length == 0 %}
