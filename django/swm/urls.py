@@ -15,7 +15,8 @@ urlpatterns = patterns('',
     url(r'^$', 'main.views.home'),
     url(r'^charts/$', 'main.views.charts'),
     url(r'^charts/charts_ajax/$', 'main.views.charts_ajax'),
-    url(r'^reports/$', 'main.views.reports'),
+    #url(r'^reports/$', 'main.views.reports'),
+    url(r'^reports/$', include('reports.urls')),
     url(r'^login/$', 'django.contrib.auth.views.login', \
             {'template_name': 'login/login.html'}),
     url(r'^logout/$', 'django.contrib.auth.views.logout_then_login', \
