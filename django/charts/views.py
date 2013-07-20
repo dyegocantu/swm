@@ -17,14 +17,6 @@ def items():
     return simplejson.dumps(items)
 
 @login_required
-def home(request):
-    try:
-        read_data = ReadData.objects.latest('pk')
-    except ReadData.DoesNotExist:
-        read_data = None
-    return render_to_response('main/index.html', {'read_data': read_data})
-
-@login_required
 def charts(request):
     return render_to_response('charts/charts.html', {'data': items()})
 
