@@ -4,5 +4,5 @@ from charts.views import *
 urlpatterns = patterns(
     '',
     url(r'^$', charts),
-    url(r'^/charts_ajax/$', charts_ajax),
+    url(r'^charts_ajax/$', charts_ajax),
 )
