@@ -7,7 +7,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'main.views.home'),
+    url(r'^$', 'main.views.index'),
     url(r'^charts/', include('charts.urls')),
     url(r'^reports/', include('reports.urls')),
     url(r'^login/$', 'django.contrib.auth.views.login', \

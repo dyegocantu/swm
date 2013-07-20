@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from models import ReadData
 
 @login_required
-def home(request):
+def index(request):
     try:
         read_data = ReadData.objects.latest('pk')
     except ReadData.DoesNotExist:
