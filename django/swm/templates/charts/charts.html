@@ -12,9 +12,11 @@
 {% if data %}
 <div id="temperature"></div>
 <div id="humidity"></div>
+{% elif data|length == 0 %}
+<p>Nenhum registro encontrado.</p>
+{% endif %}
+{% endblock content %}
 {% block js %}
-<script src="{% static "js/jquery.min.js" %}"></script>
-<script src="{% static "js/bootstrap.min.js" %}"></script>
 <script src="{% static "js/jquery.flot.min.js" %}"></script>
 <!--[if lte IE 8]>
 <script language="javascript" type="text/javascript" src="{% static "js/excanvas.min.js" %}"></script>
@@ -47,8 +49,3 @@
    });
 </script>
 {% endblock js %}
-{% elif data|length == 0 %}
-<p>Nenhum registro encontrado.</p>
-{% endif %}
-{% endblock content %}
-

@@ -2,30 +2,21 @@
 
 from django.conf import settings
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'swm.views.home', name='home'),
-    # url(r'^swm/', include('swm.foo.urls')),
-    
     url(r'^$', 'main.views.home'),
-    url(r'^charts/$', 'main.views.charts'),
-    url(r'^charts/charts_ajax/$', 'main.views.charts_ajax'),
+    #url(r'^charts/$', 'main.views.charts'),
+    #url(r'^charts/charts_ajax/$', 'main.views.charts_ajax'),
+    url(r'^charts/$', include('charts.urls')),
     #url(r'^reports/$', 'main.views.reports'),
     url(r'^reports/$', include('reports.urls')),
     url(r'^login/$', 'django.contrib.auth.views.login', \
             {'template_name': 'login/login.html'}),
     url(r'^logout/$', 'django.contrib.auth.views.logout_then_login', \
             {'login_url': '/login/'}),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
 
