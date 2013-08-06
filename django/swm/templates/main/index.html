@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block head %}
+{% block meta %}
 <meta http-equiv="refresh" content="10"/>
+{% endblock meta %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
 {% endblock css %}
-{% endblock head %}
 {% block content %}
 <div id="main1">
     <div class="hero-unity">
@@ -31,5 +31,5 @@
 {% else %}
 <p>Registro não encontrado.</p>
 {% endif %}
-{% endblock %}
+{% endblock content %}
 
